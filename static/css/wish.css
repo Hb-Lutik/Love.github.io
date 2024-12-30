@@ -1,0 +1,52 @@
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #FFDFDF, #FEE4E1);
+    color: #4A4A4A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #D16376;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+.poem {
+    margin: 30px 0;
+    font-style: italic;
+    color: #A24A59;
+    text-align: center;
+    border-left: 4px solid #D16376;
+    padding-left: 15px;
+}
+
+.signature {
+    margin-top: 30px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #D16376;
+}

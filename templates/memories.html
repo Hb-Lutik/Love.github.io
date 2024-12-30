@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спогади</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #FFDFDF, #FEE4E1);
+            color: #4A4A4A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        .title {
+            font-family: 'Lobster', cursive;
+            font-size: 2.5rem;
+            color: #D16376;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            width: 45%; /* Ширина фото для двох у ряд */
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 8px solid #FFE6E8;
+            background: linear-gradient(135deg, #FFC4D1, #FFDEE2);
+            transition: transform 0.3s ease; /* Анімація збільшення */
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.1); /* Збільшення при наведенні */
+        }
+
+        .gallery-item .caption {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #6D6D6D;
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: none;
+            z-index: 1000;
+            font-family: 'Lobster', cursive;
+            font-size: 1.5rem;
+            color: #D16376;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Наші найкращі моменти</h1>
+
+    <h2>Самий початок</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="../static/images/start/IMG_7190.JPG" alt="Момент 1">
+            <p class="caption">Сицилійський дворик енд компані</p>
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/start/2024-12-30 23.33.00.jpg" alt="Момент 2">
+            <p class="caption">Настя і персі</p>
+        </div>
+    </div>
+
+    <h2>Bookly</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="../static/images/bookly/IMG_5213.JPG" alt="Момент 1">
+            <p class="caption">Розумно дивимось у екран (Пробуємо пофіксити баги)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/bookly/IMG_7187.JPG" alt="Момент 2">
+            <p class="caption">Вайб буклі</p>
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/bookly/IMG_7189.JPG" alt="Момент 2">
+            <p class="caption">Надрукували багато паперу (Думаємо що круті)</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/bookly/IMG_0098 2.HEIC" alt="Момент 1">
+            <p class="caption">Професійно ставим свічку, вона ще досі є мене, тому можем і під неї танцювати</p>
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/bookly/IMG_7186.JPG" alt="Момент 1">
+            <p class="caption">Просто красиві обидвоє</p>
+        </div>
+    </div>
+
+    <h2>Баба оля, думаю це все магія хатинки любові❤️</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="../static/images/olia/2024-12-30 23.50.02.jpg" alt="Момент 1">
+            <p class="caption">Як би не було смішно, але ця фотошграфія зроблена рівно у 11:11 (потім прокажу пруфи)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/olia/IMG_7180.JPG" alt="Момент 2">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/olia/IMG_7181.JPG" alt="Момент 2">
+            <p class="caption">Красиво фотографуєш мене</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/olia/IMG_7182.JPG" alt="Момент 1">
+            <p class="caption">Будка персі</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/olia/IMG_7183.JPG" alt="Момент 1">
+            <p class="caption">Плоскодонка)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/olia/IMG_7184.JPG" alt="Момент 2">
+            <p class="caption">Як тобі пропозиця в таку хатинку поїхати в карпати?)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/olia/IMG_7185.JPG" alt="Момент 2">
+            <p class="caption">Наш капл лук</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/olia/IMG_7195.JPG" alt="Момент 1">
+            <p class="caption">Просто настя красиво стоїть</p>
+        </div>
+               <div class="gallery-item">
+            <img src="../static/images/olia/IMG_7196.JPG" alt="Момент 1">
+            <p class="caption">Красива настя на фоні красивого місця</p>
+        </div>
+    </div>
+
+        <h2>Погомоніли в Гомоні</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="../static/images/Gomin/IMG_7178.JPG" alt="Момент 1">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/Gomin/IMG_7179.JPG" alt="Момент 2">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/Gomin/IMG_7193.JPG" alt="Момент 2">
+            <p class="caption">одна з моїх найулюбленіших фотографій</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/Gomin/IMG_7194.JPG" alt="Момент 1">
+            <p class="caption">Неперевршена посмішка</p>
+        </div>
+
+    </div>
+
+    <h2>Франківськ</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00093.JPG" alt="Момент 1">
+            <p class="caption">Красивий сніданочок</p>
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00100.JPG" alt="Момент 2">
+                        <p class="caption">)))</p>
+
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00102.JPG" alt="Момент 2">
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00108.JPG" alt="Момент 1">
+        </div>
+
+                <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00116.JPG" alt="Момент 1">
+                                <p class="caption">Дуже красива наша фотографія</p>
+
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00123.JPG" alt="Момент 2">
+
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00138.JPG" alt="Момент 2">
+            <p class="caption">SELECT ALL FROM LIVE</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00146.JPG" alt="Момент 1">
+            <p class="caption">КРАСИВІ МИ</p>
+        </div>
+                <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00153.JPG" alt="Момент 2">
+            <p class="caption">І знову ми</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00160.JPG" alt="Момент 1">
+        </div>
+                <div class="gallery-item">
+            <img src="../static/images/Frankivsk/DSC00162.JPG" alt="Момент 2">
+        </div>
+
+                <div class="gallery-item">
+<video controls>
+            <source src="../static/images/Frankivsk/MAH00156.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+            <p class="caption">Танці, поки без мене</p>
+        </div>
+
+
+    </div>
+
+            <h2>Random but good moments</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="../static/images/moments/IMG_0078.JPG" alt="Момент 1">
+        </div>
+                        <div class="gallery-item">
+<video controls>
+            <source src="../static/images/moments/IMG_6382.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/moments/IMG_0079.JPG" alt="Момент 2">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/moments/IMG_0083.JPG" alt="Момент 2">
+            <p class="caption">Роблю розумний вигляд що розьираюсь в фотографіях)</p>
+        </div>
+
+                        <div class="gallery-item">
+<video controls>
+            <source src="../static/images/moments/IMG_6383.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+            <p class="caption">Львів на лодоні</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/moments/IMG_6422.JPG" alt="Момент 1">
+        </div>
+
+    </div>
+
+    <h2>The best of the best❤️❤️❤️</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="../static/images/best/2024-12-31 00.19.20.jpg" alt="Момент 1">
+                        <p class="caption">Неперевершений початок</p>
+
+        </div>
+                        <div class="gallery-item">
+
+
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/best/2024-12-31 00.16.20.jpg" alt="Момент 2">
+                        <p class="caption">Дуже красива</p>
+
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/best/2024-12-31 00.16.31.jpg" alt="Момент 2">
+        </div>
+
+                        <div class="gallery-item">
+<video controls>
+            <source src="../static/images/best/2591799252047590930.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+            <p class="caption">Які ми класні</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/best/2024-12-31 00.16.39.jpg" alt="Момент 1">
+                        <p class="caption">❤️</p>
+
+        </div>
+
+        <div class="gallery-item">
+<video controls>
+            <source src="../static/images/best/5902188305999759912.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+            <p class="caption">Дуже гарне відео</p>
+        </div>
+                <div class="gallery-item">
+            <img src="../static/images/best/2024-12-31 00.16.45.jpg" alt="Момент 1">
+                                <p class="caption">Cheers</p>
+
+        </div>
+
+        <div class="gallery-item">
+<video controls>
+            <source src="../static/images/best/6902267402020744280.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+            <p class="caption">Щось впевнено обговорюємо</p>
+        </div>
+                <div class="gallery-item">
+            <img src="../static/images/best/2024-12-31 00.16.49.jpg" alt="Момент 1">
+                                <p class="caption">Просто Голівуд, непередати словами наскільки красива фотографія</p>
+
+        </div>
+
+        <video controls>
+            <source src="../static/images/best/IMG_6830.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+                                        <p class="caption">Романтичний вечір</p>
+
+    </div>
+
+
+
+    <h2>Трішки наших мемів)</h2>
+<div class="gallery">
+        <div class="gallery-item">
+            <img src="../static/images/memes/IMG_6708.JPG" alt="Момент 1">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/memes/IMG_7191.JPG" alt="Момент 2">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/memes/IMG_7197.JPG" alt="Момент 3">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/memes/IMG_7198.JPG" alt="Момент 4">
+        </div>
+
+        <div class="gallery-item">
+            <img src="../static/images/memes/IMG_7199.JPG" alt="Момент 1">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/memes/IMG_7200.JPG" alt="Момент 2">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/memes/IMG_7201.JPG" alt="Момент 3">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/memes/IMG_7202.JPG" alt="Момент 4">
+        </div>
+            <div class="gallery-item">
+            <img src="../static/images/memes/IMG_7203.JPG" alt="Момент 3">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/images/memes/IMG_7204.JPG" alt="Момент 4">
+        </div>
+    </div>
+  <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="popup" id="popup"></div>
+
+    <script>
+        // Масив з компліментами
+        const compliments = [
+            "В тобі є те, що змушує навіть навіть прості речі виглядати особливими.",
+"Ти як тінь в гарячий день — завжди поруч, але ніколи не нав'язлива.",
+"Ти наче той момент, коли несподівано знаходиш ідеальну відповідь на запитання, яке мучило довго.",
+"В тобі є щось таке, що змушує весь світ ставати яснішим.",
+"Ти, як найкраще рішення в найскладнішій ситуації.",
+"Твій погляд — це те, що змушує мене все побачити по-новому.",
+"Ти так невидимо впливаєш на мої думки, що часто не помічаю, як просто хочеться бути поруч.",
+"Ти — як ідея, що приходить в голову після довгих роздумів, але ти настільки очевидна, що не можеш не захопити.",
+"Ти не просто красива, ти — правильний рівень складності, щоб зацікавити, але й не відпускати.",
+        ];
+
+        // Функція для показу попапу
+        function showPopup() {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('popupOverlay');
+            const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
+
+            popup.textContent = randomCompliment;
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+
+            setTimeout(() => {
+                popup.style.display = 'none';
+                overlay.style.display = 'none';
+            }, 4000); // Попап зникає через 3 секунди
+        }
+
+        // Запуск попапу кожні 10 секунд
+        setInterval(showPopup, 20000);
+    </script>
+</body>
+</html>
